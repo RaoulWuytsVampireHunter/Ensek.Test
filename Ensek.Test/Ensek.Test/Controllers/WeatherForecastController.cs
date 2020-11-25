@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ensek.Test.Controllers
+namespace Ensek.Test.Web.Controllers
 {
     [ApiController]
     [Route("[controller]")]

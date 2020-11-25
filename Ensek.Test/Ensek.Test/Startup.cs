@@ -11,21 +11,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ensek.Test
+namespace Ensek.Test.Web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public IWebHostEnvironment Environment { get; }
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            Environment = env;
         }
 
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddOpenApiDocument(configure =>
+            {
+                configure.Title = "Bonjour";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +45,15 @@ namespace Ensek.Test
 
             app.UseHttpsRedirection();
 
+
+            // swagger conf
+            app.UseOpenApi();
+            app.UseSwaggerUi3(settings =>
+            {
+                settings.Path = "/api";
+            });
+
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -49,3 +65,4 @@ namespace Ensek.Test
         }
     }
 }
+

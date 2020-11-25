@@ -1,6 +1,6 @@
 using System;
 
-namespace Ensek.Test
+namespace Ensek.Test.Web
 {
     public class WeatherForecast
     {
