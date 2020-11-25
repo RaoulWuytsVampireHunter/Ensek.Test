@@ -14,5 +14,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Ensek.Test.Infrastructure\Ensek.Test.Infrastructure.csproj" />
+  </ItemGroup>
+
 
 </Project>

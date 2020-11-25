@@ -1,3 +1,4 @@
+using Ensek.Test.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,10 +29,11 @@ namespace Ensek.Test.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddInfrastructure(Configuration);
             services.AddControllers();
             services.AddOpenApiDocument(configure =>
             {
-                configure.Title = "Bonjour";
+                configure.Title = "Ensek test";
             });
         }
 
@@ -44,7 +46,6 @@ namespace Ensek.Test.Web
             }
 
             app.UseHttpsRedirection();
-
 
             // swagger conf
             app.UseOpenApi();
