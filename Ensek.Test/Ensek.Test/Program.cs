@@ -8,12 +8,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Ensek.Test.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ensek.Test.Web
 {
     public class Program
     {
-        public async static void Main(string[] args)
+        public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
 
@@ -29,6 +30,7 @@ namespace Ensek.Test.Web
                 catch (Exception ex)
                 {
                     Console.Out.WriteLine(ex.ToString());
+                    throw;
                 }
 
             }
