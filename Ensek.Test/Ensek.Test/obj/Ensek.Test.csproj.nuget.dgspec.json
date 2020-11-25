@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\git\\githubs\\ensek\\Ensek.Test\\Ensek.Test\\Ensek.Test\\Ensek.Test.csproj",
-        "projectName": "Ensek.Test",
+        "projectName": "Ensek.Test.Web",
         "projectPath": "C:\\git\\githubs\\ensek\\Ensek.Test\\Ensek.Test\\Ensek.Test\\Ensek.Test.csproj",
         "packagesPath": "C:\\Users\\Raoul\\.nuget\\packages\\",
         "outputPath": "C:\\git\\githubs\\ensek\\Ensek.Test\\Ensek.Test\\Ensek.Test\\obj\\",
