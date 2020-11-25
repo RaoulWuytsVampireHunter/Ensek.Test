@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ensek.Test.Domain
+namespace Ensek.Test.Infrastructure
 {
     public class Class1
     {
