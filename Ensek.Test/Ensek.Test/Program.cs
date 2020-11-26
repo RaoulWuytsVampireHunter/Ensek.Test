@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Ensek.Test.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
-namespace Ensek.Test
+namespace Ensek.Test.Web
 {
     public class Program
     {
