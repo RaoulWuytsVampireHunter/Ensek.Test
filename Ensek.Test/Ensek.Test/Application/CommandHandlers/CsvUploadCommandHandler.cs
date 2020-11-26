@@ -33,15 +33,14 @@ namespace Ensek.Test.Application.CommandHandlers
             int succeeded = 0;
             int failed = 0;
 
-            IFormatProvider prov = null;
-
             foreach (var row in csvLines)
             {
                 var entity = new MeterReading();
 
-                if (!int.TryParse(row.AccountId, out int accountId) ||
+                if ( !int.TryParse(row.AccountId, out int accountId) ||
                      !DateTime.TryParse(row.MeterReadingDateTime, out DateTime readingDateTime) ||
-                     !int.TryParse(row.MeterReadValue, System.Globalization.NumberStyles.Integer, prov, out int readingValue))
+                     !(row.MeterReadValue.Length == 5) ||
+                     !int.TryParse(row.MeterReadValue, out int readingValue))
                 {
                     failed++;
                     continue;

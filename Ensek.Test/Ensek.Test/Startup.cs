@@ -38,7 +38,7 @@ namespace Ensek.Test
             services.AddDbContext<ApplicationDbContext>(options =>
                  options.UseSqlServer(
                      Configuration.GetConnectionString("DefaultConnection"),
-                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+                     b => b.MigrationsAssembly("Ensek.Test.Infrastructure.Persistence")));
 
             services.AddScoped(provider => provider.GetService<ApplicationDbContext>());
 
