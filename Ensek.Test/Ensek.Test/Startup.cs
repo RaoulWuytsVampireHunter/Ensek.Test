@@ -1,8 +1,15 @@
+using Ensek.Test.Application.Behaviours;
+using Ensek.Test.Application.Interfaces;
+using Ensek.Test.Application.Utils.Csv;
 using Ensek.Test.Infrastructure;
+using Ensek.Test.Infrastructure.Persistence;
+using Ensek.Test.Infrastructure.Repositories;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -12,7 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ensek.Test.Web
+namespace Ensek.Test
 {
     public class Startup
     {
@@ -25,16 +32,19 @@ namespace Ensek.Test.Web
             Environment = env;
         }
 
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                  options.UseSqlServer(
-                     configuration.GetConnectionString("DefaultConnection"),
+                     Configuration.GetConnectionString("DefaultConnection"),
                      b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
             services.AddScoped(provider => provider.GetService<ApplicationDbContext>());
+
+            services.AddTransient(typeof(ICsvImporter), typeof(CsvImporter));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+            services.AddTransient<IMeterReadingRepository, MeterReadingRepository>();
 
             services.AddControllers();
             services.AddOpenApiDocument(configure =>
