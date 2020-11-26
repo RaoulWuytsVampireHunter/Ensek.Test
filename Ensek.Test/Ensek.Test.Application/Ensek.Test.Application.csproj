@@ -5,8 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Validators\" />
     <Folder Include="Utils\Csv\Mapping\" />
     <Folder Include="Utils\Csv\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.3.0" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
   </ItemGroup>
 
 </Project>

@@ -11,6 +11,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
     <PackageReference Include="NSwag.AspNetCore" Version="13.9.4" />
     <PackageReference Include="NSwag.MSBuild" Version="13.9.4">
       <PrivateAssets>all</PrivateAssets>
@@ -19,7 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ensek.Test.Infrastructure\Ensek.Test.Infrastructure.csproj" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Domain\Migrations\" />
   </ItemGroup>
 
 
