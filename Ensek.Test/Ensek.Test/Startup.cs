@@ -35,10 +35,10 @@ namespace Ensek.Test
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                 options.UseSqlServer(
-                     Configuration.GetConnectionString("DefaultConnection"),
-                     b => b.MigrationsAssembly("Ensek.Test.Infrastructure.Persistence")));
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //     options.UseSqlServer(
+            //         Configuration.GetConnectionString("DefaultConnection"),
+            //         b => b.MigrationsAssembly("Ensek.Test.Infrastructure.Persistence")));
 
             services.AddScoped(provider => provider.GetService<ApplicationDbContext>());
 
@@ -69,7 +69,6 @@ namespace Ensek.Test
             {
                 settings.Path = "/api";
             });
-
 
             app.UseRouting();
 

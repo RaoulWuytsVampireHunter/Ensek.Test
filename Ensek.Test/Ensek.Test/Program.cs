@@ -14,7 +14,7 @@ namespace Ensek.Test
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
 
@@ -23,9 +23,9 @@ namespace Ensek.Test
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<ApplicationDbContext>();
+                    //var context = services.GetRequiredService<ApplicationDbContext>();
 
-                    context.Database.Migrate();
+                    //context.Database.Migrate();
                 }
                 catch (Exception ex)
                 {
@@ -34,6 +34,7 @@ namespace Ensek.Test
                 }
 
             }
+            await host.RunAsync();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
