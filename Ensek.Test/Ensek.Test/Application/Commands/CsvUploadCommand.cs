@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Ensek.Test.Application.Commands
 {
-    public class CsvUploadCommand : IRequest<Response>
+    public class CsvUploadCommand : IRequest<CsvResponse>
     {
         public IFormFileCollection Files { get; }
 
